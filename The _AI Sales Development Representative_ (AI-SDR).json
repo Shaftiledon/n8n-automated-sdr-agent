@@ -1,0 +1,1091 @@
+{
+  "name": "The \"AI Sales Development Representative\" (AI-SDR)",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "88295f66-6790-4927-80e5-5dd2d99a0c85",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apptg4klb2b09XjOp",
+          "mode": "list",
+          "cachedResultName": "The AI Sales Development Representative",
+          "cachedResultUrl": "https://airtable.com/apptg4klb2b09XjOp"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbltMY4q2BfhfJVj0",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/apptg4klb2b09XjOp/tbltMY4q2BfhfJVj0"
+        },
+        "filterByFormula": "{Status} = 'New'",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "e76af9ab-7380-4d90-a038-2c24cfed66b8",
+      "name": "Search AI Sales Development Rep Table",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "auKatOPIflG3mJQA",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apptg4klb2b09XjOp",
+          "mode": "list",
+          "cachedResultName": "The AI Sales Development Representative",
+          "cachedResultUrl": "https://airtable.com/apptg4klb2b09XjOp"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbltMY4q2BfhfJVj0",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/apptg4klb2b09XjOp/tbltMY4q2BfhfJVj0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "Status": "Researching"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Lead Name",
+              "displayName": "Lead Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Company Name",
+              "displayName": "Company Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Website",
+              "displayName": "Website",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "New",
+                  "value": "New"
+                },
+                {
+                  "name": "Researching",
+                  "value": "Researching"
+                },
+                {
+                  "name": "Needs Approval",
+                  "value": "Needs Approval"
+                },
+                {
+                  "name": "Contacted",
+                  "value": "Contacted"
+                },
+                {
+                  "name": "Disqualified",
+                  "value": "Disqualified"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Research Summary",
+              "displayName": "Research Summary",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Draft Email",
+              "displayName": "Draft Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Last Modified",
+              "displayName": "Last Modified",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        416,
+        0
+      ],
+      "id": "08e0fb9b-9807-4dc2-a430-44ccca917c4d",
+      "name": "Update 'Status' record in AI Sales Development Rep Table",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "auKatOPIflG3mJQA",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.fields.Website }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        624,
+        0
+      ],
+      "id": "f0a1d10f-0a95-47ef-98b3-8a4e618c080c",
+      "name": "Prelim search of Company Site"
+    },
+    {
+      "parameters": {
+        "html": "={{ $json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        832,
+        0
+      ],
+      "id": "38015025-0f84-4885-96a4-046d82fd8544",
+      "name": "Extract Company Info"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are a sales researcher. I am targeting this company:\nCompany: {{ $('Update \\'Status\\' record in AI Sales Development Rep Table').item.json.fields['Company Name'] }} (from Airtable node)\nWebsite Content: {{ $json[\"data\"] }} (from Markdown node)\n\nTask:\n1. Summarize what this company does in 2 sentences.\n2. Identify their Ideal Customer Profile (who buys from them?).\n3. Find one \"hook\" I can use in a cold email (e.g., a specific feature or value prop).\n\nOutput JSON format:\n{\n  \"summary\": \"...\",\n  \"icp\": \"...\",\n  \"hook\": \"...\"\n}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {
+          "textFormat": {
+            "textOptions": {
+              "type": "json_object"
+            }
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        1040,
+        0
+      ],
+      "id": "815d8cea-a1c5-4e57-b023-20446cc2fd3f",
+      "name": "Company Info: Description & ICP",
+      "credentials": {
+        "openAiApi": {
+          "id": "vwI1ruHftLnrJ6S9",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=Role: You are a top-tier SDR (Sales Development Representative).\n\nContext:\n1. Company Analysis: {{ $('Company Info: Description & ICP').item.json.output[0].content[0].text }} (From your first AI node)\n2. Recent News: {{ $json[\"news_results\"][0][\"title\"] }} - {{ $json[\"news_results\"][0][\"snippet\"] }} (From SerpApi node)\n\nTask:\nWrite a short, punchy cold email to the decision maker.\n\nRules:\n- Subject Line: Keep it under 4 words.\n- Opening: Mention the SPECIFIC news item found above to show we did research.\n- Value Prop: Connect their business goal (from the analysis) to our solution (Automation Services).\n- Call to Action: \"Open to a 15-min chat?\"\n- Signature: Joshua.\n\nOutput Format (JSON):\n{\n  \"subject\": \"...\",\n  \"body\": \"...\"\n}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {
+          "textFormat": {
+            "textOptions": {
+              "type": "json_object"
+            }
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        1584,
+        0
+      ],
+      "id": "1a49323a-ab01-4e72-96f4-ea3f19a187cf",
+      "name": "Recent Company News Based Email Creator",
+      "credentials": {
+        "openAiApi": {
+          "id": "vwI1ruHftLnrJ6S9",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://serpapi.com/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "api_key",
+              "value": "6d3a140c345a32e4438359f85cb420cc8c3ec4184e29f0ce39ad3d17959314dd"
+            },
+            {
+              "name": "q",
+              "value": "={{ $('Update \\'Status\\' record in AI Sales Development Rep Table').item.json.fields['Company Name'] }} latest news"
+            },
+            {
+              "name": "tbm",
+              "value": "nws"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1376,
+        0
+      ],
+      "id": "77f5acee-b5fb-4b79-82b5-392e83487ee6",
+      "name": "External Company Recent News Extractor"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "360cebb9-30cb-4077-990c-3d1fa09e1b12",
+              "leftValue": "={{ $json.data.approved }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2336,
+        0
+      ],
+      "id": "5f59ed47-edd9-4067-9351-43a477b78d82",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apptg4klb2b09XjOp",
+          "mode": "list",
+          "cachedResultName": "The AI Sales Development Representative",
+          "cachedResultUrl": "https://airtable.com/apptg4klb2b09XjOp"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbltMY4q2BfhfJVj0",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/apptg4klb2b09XjOp/tbltMY4q2BfhfJVj0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Search AI Sales Development Rep Table').item.json.id }}",
+            "Status": "Approved"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Lead Name",
+              "displayName": "Lead Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Company Name",
+              "displayName": "Company Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Website",
+              "displayName": "Website",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "New",
+                  "value": "New"
+                },
+                {
+                  "name": "Researching",
+                  "value": "Researching"
+                },
+                {
+                  "name": "Needs Approval",
+                  "value": "Needs Approval"
+                },
+                {
+                  "name": "Contacted",
+                  "value": "Contacted"
+                },
+                {
+                  "name": "Disqualified",
+                  "value": "Disqualified"
+                },
+                {
+                  "name": "Approved",
+                  "value": "Approved"
+                },
+                {
+                  "name": "Needs Rewrite",
+                  "value": "Needs Rewrite"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Research Summary",
+              "displayName": "Research Summary",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Draft Email",
+              "displayName": "Draft Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Last Modified",
+              "displayName": "Last Modified",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2544,
+        -96
+      ],
+      "id": "005b90ae-be46-4d6e-955a-b5d011869a72",
+      "name": "Update Status to Approved",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "auKatOPIflG3mJQA",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apptg4klb2b09XjOp",
+          "mode": "list",
+          "cachedResultName": "The AI Sales Development Representative",
+          "cachedResultUrl": "https://airtable.com/apptg4klb2b09XjOp"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbltMY4q2BfhfJVj0",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/apptg4klb2b09XjOp/tbltMY4q2BfhfJVj0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Search AI Sales Development Rep Table').item.json.id }}",
+            "Status": "Needs Rewrite"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Lead Name",
+              "displayName": "Lead Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Company Name",
+              "displayName": "Company Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Website",
+              "displayName": "Website",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "New",
+                  "value": "New"
+                },
+                {
+                  "name": "Researching",
+                  "value": "Researching"
+                },
+                {
+                  "name": "Needs Approval",
+                  "value": "Needs Approval"
+                },
+                {
+                  "name": "Contacted",
+                  "value": "Contacted"
+                },
+                {
+                  "name": "Disqualified",
+                  "value": "Disqualified"
+                },
+                {
+                  "name": "Approved",
+                  "value": "Approved"
+                },
+                {
+                  "name": "Needs Rewrite",
+                  "value": "Needs Rewrite"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Research Summary",
+              "displayName": "Research Summary",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Draft Email",
+              "displayName": "Draft Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Last Modified",
+              "displayName": "Last Modified",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2544,
+        112
+      ],
+      "id": "3be01891-f7b9-4407-9e63-309d2b4a0910",
+      "name": "Update Status to Needs Rewrite",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "auKatOPIflG3mJQA",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendAndWait",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0A6ZFS028Z",
+          "mode": "id"
+        },
+        "message": "=🚀 *New Draft Email Ready*\n\n*Company:* {{ $json.fields['Company Name'] }}\n\n*Research Summary:*\n{{ $json.fields['Research Summary'].value }}\n\n----------------------------------\n\n*Draft Email:*\n>>> {{ $json.fields['Draft Email'] }}",
+        "approvalOptions": {
+          "values": {
+            "approvalType": "double"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        2128,
+        0
+      ],
+      "id": "a6b5b0e4-11ee-4d9b-9201-9a914a673f5a",
+      "name": "Review Email Draft on Slack",
+      "webhookId": "6d0f77e4-637f-40cd-8b3e-ee18383ef9bc",
+      "credentials": {
+        "slackApi": {
+          "id": "lMWQ7imFU91nENWT",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apptg4klb2b09XjOp",
+          "mode": "list",
+          "cachedResultName": "The AI Sales Development Representative",
+          "cachedResultUrl": "https://airtable.com/apptg4klb2b09XjOp"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbltMY4q2BfhfJVj0",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/apptg4klb2b09XjOp/tbltMY4q2BfhfJVj0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Update \\'Status\\' record in AI Sales Development Rep Table').item.json.id }}",
+            "Research Summary": "={{ $('Company Info: Description & ICP').item.json.output[0].content[0].text.summary }}",
+            "Draft Email": "={{ $('Recent Company News Based Email Creator').item.json.output[0].content[0].text.body }}",
+            "Status": "Needs Approval"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Lead Name",
+              "displayName": "Lead Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Company Name",
+              "displayName": "Company Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Website",
+              "displayName": "Website",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "New",
+                  "value": "New"
+                },
+                {
+                  "name": "Researching",
+                  "value": "Researching"
+                },
+                {
+                  "name": "Needs Approval",
+                  "value": "Needs Approval"
+                },
+                {
+                  "name": "Contacted",
+                  "value": "Contacted"
+                },
+                {
+                  "name": "Disqualified",
+                  "value": "Disqualified"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Research Summary",
+              "displayName": "Research Summary",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Draft Email",
+              "displayName": "Draft Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Last Modified",
+              "displayName": "Last Modified",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1920,
+        0
+      ],
+      "id": "91d64ca8-859d-46cc-8533-407aaa748645",
+      "name": "Update Status to Needs Approval (once Research and Email is ready)",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "auKatOPIflG3mJQA",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Search AI Sales Development Rep Table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search AI Sales Development Rep Table": {
+      "main": [
+        [
+          {
+            "node": "Update 'Status' record in AI Sales Development Rep Table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update 'Status' record in AI Sales Development Rep Table": {
+      "main": [
+        [
+          {
+            "node": "Prelim search of Company Site",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prelim search of Company Site": {
+      "main": [
+        [
+          {
+            "node": "Extract Company Info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Company Info": {
+      "main": [
+        [
+          {
+            "node": "Company Info: Description & ICP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Company Info: Description & ICP": {
+      "main": [
+        [
+          {
+            "node": "External Company Recent News Extractor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "External Company Recent News Extractor": {
+      "main": [
+        [
+          {
+            "node": "Recent Company News Based Email Creator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recent Company News Based Email Creator": {
+      "main": [
+        [
+          {
+            "node": "Update Status to Needs Approval (once Research and Email is ready)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Update Status to Approved",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update Status to Needs Rewrite",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Review Email Draft on Slack": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Status to Needs Approval (once Research and Email is ready)": {
+      "main": [
+        [
+          {
+            "node": "Review Email Draft on Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "d1f8364e-5ddc-464a-8deb-ef0627878cb9",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "dd5a9e7c59b8b07d1e2e2dc7cdc5c7e454a38c8a2d7519f658aa15ca2a061c15"
+  },
+  "id": "f28PR5EswncAVc0M",
+  "tags": []
+}
