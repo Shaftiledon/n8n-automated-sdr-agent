@@ -66,7 +66,7 @@ Unlike standard "auto-generated" spam, this agent includes a **Human-in-the-Loop
 
 1.  **Clone the Repo:**
     ```bash
-    git clone [https://github.com/yourusername/ai-sdr-agent.git](https://github.com/yourusername/ai-sdr-agent.git)
+    git clone [https://github.com/yourusername/ai-sdr-agent.git](https://github.com/Shaftiledon/ai-sdr-agent.git)
     ```
 2.  **Import Workflow:**
     * Open n8n.
