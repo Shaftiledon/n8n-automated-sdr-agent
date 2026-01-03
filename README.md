@@ -66,7 +66,7 @@ Unlike standard "auto-generated" spam, this agent includes a **Human-in-the-Loop
 
 1.  **Clone the Repo:**
     ```bash
-    git clone (https://github.com/Shaftiledon/ai-sdr-agent.git)
+    git clone https://github.com/Shaftiledon/n8n-automated-sdr-agent.git
     ```
 2.  **Import Workflow:**
     * Open n8n.
@@ -86,10 +86,11 @@ Unlike standard "auto-generated" spam, this agent includes a **Human-in-the-Loop
 ## 📸 Screenshots
 
 ### 1. The Workflow Logic
-*(Add a screenshot of your n8n graph here)*
+<img width="1440" height="756" alt="Screenshot 2026-01-03 at 17 59 18" src="https://github.com/user-attachments/assets/7f539cd9-6d92-4675-a9c3-462014ac5d8d" />
+
 
 ### 2. The Slack Approval Dashboard
-*(Add a screenshot of the Slack card with buttons here)*
+<img width="1440" height="755" alt="Screenshot 2026-01-03 at 18 26 19" src="https://github.com/user-attachments/assets/a17cca03-f316-4e95-9161-ed5fc629be24" />
 
 ---
 
